@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentos/head :: head">
+
+</head>
+
+<body>
+    <header th:replace="fragmentos/header :: header"></header>
+
+    <body>
+        <caption>LISTA DE EDITORIALES</caption>
+        <table class="table table-success table-striped">
+
+            <thead class="table-hover">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Condicion</th>
+                    <th scope="col">Editar</h>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr th:each="editorial : ${editoriales}">
+                    <td th:text="${editorial.id}"></td>
+                    <td th:text="${editorial.nombre}"></td>
+                    <td >
+                        <span th:if="${editorial.alta == true}">
+                            <button type="button" class="btn btn-outline-danger btn-sm">Dar de baja</button>
+                        </span>
+                        <span th:if="${editorial.alta == false}">
+                            <button type="button" class="btn btn-outline-success btn-sm">Dar de alta</button>
+                        </span>                       
+                        </a>
+                    </td> 
+                    <td ><button type="button" class="btn btn-success btn-sm">Editar</button>
+                        <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </body>
+
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

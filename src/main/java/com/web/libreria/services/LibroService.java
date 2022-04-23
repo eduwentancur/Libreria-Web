@@ -24,7 +24,6 @@ public class LibroService implements BaseService<Libro, Long> {
     @Override
     @Transactional
     public void update(Libro entity) {
-        // TODO Auto-generated method stub
         
     }
 
