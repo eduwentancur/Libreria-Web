@@ -5,48 +5,52 @@
 
 </head>
 
+<header th:replace="fragmentos/header :: header"></header>
+
 <body>
-    <header th:replace="fragmentos/header :: header"></header>
+    
+    <main>
+        <div class="card border-primary mb-3">
+            <div class="card-header">Autores</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title">Lista de Autores</h5>
+                <table class="table table-success table-striped">
+                    <thead class="table-hover">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Condicion</th>
+                            <th scope="col">Editar</h>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-    <body>
-        <caption>LISTA DE AUTORES</caption>
-        <table class="table table-success table-striped">
+                        <tr th:each="autor : ${autores}">
+                            <td th:text="${autor.id}"></td>
+                            <td th:text="${autor.nombre}"></td>
+                            <td>
+                                <span th:if="${autor.alta == true}">
+                                    <button type="button" class="btn btn-outline-danger btn-sm">Dar de baja</button>
+                                </span>
+                                <span th:if="${autor.alta == false}">
+                                    <button type="button" class="btn btn-outline-success btn-sm">Dar de alta</button>
+                                </span>
+                                </a>
+                            </td>
+                            <td><button type="button" class="btn btn-success btn-sm">Editar</button>
+                                <a th:href="@{/eliminar/autor/} + ${autor.id} "><button type="button"
+                                        class="btn btn-danger btn-sm">Eliminar</button></a>
+                            </td>
 
-            <thead class="table-hover">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Condicion</th>
-                    <th scope="col">Editar</h>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr th:each="autor : ${autores}">
-                    <td th:text="${autor.id}"></td>
-                    <td th:text="${autor.nombre}"></td>
-                    <td >
-                        <span th:if="${autor.alta == true}">
-                            <button type="button" class="btn btn-outline-danger btn-sm">Dar de baja</button>
-                        </span>
-                        <span th:if="${autor.alta == false}">
-                            <button type="button" class="btn btn-outline-success btn-sm">Dar de alta</button>
-                        </span>                       
-                        </a>
-                    </td> 
-                    <td ><button type="button" class="btn btn-success btn-sm">Editar</button>
-                        <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                    
-                </tr>
-            </tbody>
-        </table>
-
-
-
-    </body>
-
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <a th:href="@{/crearAutor}"> <button type="button" class="btn-success btn-sm">Ingresar Autor</button></a>
+        </div>
+    </main>
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
-
 </html>

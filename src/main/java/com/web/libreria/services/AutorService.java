@@ -39,13 +39,17 @@ public class AutorService implements BaseService<Autor, Long> {
     @Override
     @Transactional(readOnly = true)
     public Autor getById(Long id) {
-        return null;
+        return autorRepository.findById(id).get();
     }
 
     @Override
     @Transactional
     public void deleteById(Long id) {
+        autorRepository.deleteById(id);
     }
 
-    
+    @Transactional(readOnly = true)
+    public Autor BuscarAutor(Autor autor) {
+        return autorRepository.findById(autor.getId()).orElse(null);
+    }
 }

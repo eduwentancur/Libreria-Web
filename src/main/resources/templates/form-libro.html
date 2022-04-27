@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:replace="fragmentos/head :: head"></head>
+
+    <body>
+        <header th:replace="fragmentos/header :: header"></header>
+
+        <main>
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <form th:action="@{/agregar/libro/__${action}__}" th:object="${libro}" method="post" autocomplete="off" >
+                            <input type="hidden" th:field="*{id}">
+
+                            <div class="mb-3">
+                                <label for="isbn" class="form-label" >ISBN</label>
+                                <input type="text" class="form-control" th:field="*{isbn}" id="isbn" placeholder="">
+                                
+                                <div>
+                                    <label for="titulo" class="form-label" >Titulo</label>
+                                    <input type="text" class="form-control" th:field="*{titulo}" id="titulo" placeholder="">
+                                    
+                                </div>
+                                <div>
+                                    <label for="anio" class="form-label" >Año</label>
+                                    <input type="text" class="form-control" th:field="*{anio}" id="anio" placeholder="1998">
+                                       
+                                </div>
+                                <div>
+                                    <label for="ejemplares" class="form-label" >Ejemplares</label>
+                                    <input type="text" class="form-control" th:field="*{ejemplares}" id="ejemplares" placeholder="">
+                                    
+                                </div>  
+                                <div>
+                                    <label for="ejemplaresPrestados" class="form-label" >Ejemplares Prestados</label>
+                                    <input type="text" class="form-control" th:field="*{ejemplaresPrestados}" id="ejemplaresPrestados" placeholder="">
+                                </div> 
+                                
+                                <div>
+                                    <label for="autor">Seleccione Autor</label> 
+                                    
+                                    <select th:field=*{autor} class="form-select" id="autor"  > 
+                                        <option th:each="autor:${autores}"
+                                            th:value="${autor.id}"
+                                            th:text="${autor.nombre}"
+                                        />
+                                      </select>
+                                </div>
+                                <div>
+                                    <label for="aditorial">Seleccione Editorial</label>
+                                    <select th:field=*{editorial} class="form-select" id="editorial">  
+                                        <option th:each="editorial:${editoriales}"
+                                            th:value="${editorial.id}"
+                                            th:text="${editorial.nombre}"
+                                        />
+                                      </select>
+                                </div>
+
+
+
+
+                            </div>
+
+                            
+                            <button type="submit" class="btn btn-warning">Registrar Libro</button>
+                            <button class="btn btn-success" align="left" type="button" >Agregar Autor</button>
+                            <button class="btn btn-danger" align="left" type="button" >Agregar Editorial</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+        
+
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </body>
+</html>

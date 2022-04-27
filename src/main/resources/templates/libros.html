@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentos/head :: head">
+
+</head>
+
+<header th:replace="fragmentos/header :: header"></header>
+
+<body>
+    
+    <main>
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Libros</div>
+            <div class="card-body">
+              <h5 class="card-title">LSITA DE LIBROS</h5>
+              <table class="table table-success table-striped">
+                <thead class="table-hover">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">ISBN</th>
+                        <th scope="col">TITULO</th>
+                        <th scope="col">Ejemplares</th>
+                        <th scope="col">Ejemplares Prestados</th>
+                        <th scope="col">Ejemplares Restantes</th>
+                        <th scope="col">Condicion</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr th:each="libro : ${libros}">
+                        <td th:text="${libro.id}"></td>
+                        <td th:text="${libro.isbn}"></td>
+                        <td th:text="${libro.titulo}"></td>
+                        <td th:text="${libro.anio}"></td>
+                        <td th:text="${libro.ejemplares}"></td>
+                        <td th:text="${libro.ejemplaresPrestados}"></td>
+                        <td th:text="${libro.ejemplaresRestantes}"></td>
+                        <td>
+                            <span th:if="${libro.alta == true}">
+                                <button type="button" class="btn btn-outline-danger btn-sm">Dar de baja</button>
+                            </span>
+                            <span th:if="${libro.alta == false}">
+                                <button type="button" class="btn btn-outline-success btn-sm">Dar de alta</button>
+                            </span>
+                            </a>
+                        </td>
+                        <td><button type="button" class="btn btn-success btn-sm">Editar</button>
+                            <a th:href="@{/eliminar/autor/} + ${autor.id} "><button type="button"
+                                    class="btn btn-danger btn-sm">Eliminar</button></a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+            </div>
+          </div>
+    </main>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

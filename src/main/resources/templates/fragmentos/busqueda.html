@@ -1,0 +1,47 @@
+<busqueda th:fragment="busqueda">
+
+<div class="card border-success mb-3" align="left">
+    <div class="card-header">Busqueda</div>
+    <div class="card-body text-success">
+      <h5 class="card-title">Buscar LIBROS</h5>
+      <table class="table table-success table-striped">
+        <thead class="table-hover">
+            <form th:action="@{/buscarporid}" method="get" class="form">
+                <table class="table" align="left" >
+                    <tr>
+                        <td width="200">Buscar por ID:</td>
+                        <td width="120"><input type="text" name="keyword" placeholder="Ingrese el ID"></td>
+                        <td width="120" align="right"><button class="btn btn-primary" type="submit"><span
+                                    class="fas fa-search"></span>Buscar</button></td>
+                    </tr>
+                    <tr>
+                      <td width="200">Buscar por Nombre:</td>
+                      <td width="120"><input type="text" name="keyword" placeholder="Ingrese Nombre"></td>
+                      <td width="120" align="right"><button class="btn btn-primary" type="submit"><span
+                                  class="fas fa-search"></span>Buscar</button></td>
+                    </tr>
+                    <tr>
+                      <td width="200">Buscar por Autor:</td>
+                      <td width="120"><input type="text" name="keyword" placeholder="Ingrese Nombre AUTOR"></td>
+                      <td width="120" align="right"><button class="btn btn-primary" type="submit"><span
+                                  class="fas fa-search"></span>Buscar</button></td>
+                    </tr>
+                    <tr>
+                      <td width="200">Buscar por Editorial:</td>
+                      <td width="120"><input type="text" name="keyword" placeholder="Ingrese EDITORIAL"></td>
+                      <td width="120" align="right"><button class="btn btn-primary" type="submit"><span
+                                  class="fas fa-search"></span>Buscar</button></td>
+                    </tr>
+                </table>
+            </form>
+        
+            
+    </table>
+
+
+
+
+    </div>
+  </div>
+
+</busqueda>

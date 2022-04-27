@@ -47,8 +47,7 @@ public class LibroService implements BaseService<Libro, Long> {
 
     @Transactional
     public void cambiarAlta(Libro libro) {
-        libro.setAlta(!libro.getAlta());
-        libroRepository.save(libro);
+        
     }
 
 

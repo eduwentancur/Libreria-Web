@@ -51,7 +51,23 @@ public class EditorialService implements BaseService<Editorial, Long> {
         
     }
 
+    @Transactional
+    public void alataBaja(Editorial entity) {
+        if(entity.getAlta()==true){
+            entity.setAlta(false);
+
+        }else if(entity.getAlta()==false){
+            entity.setAlta(true);
+        }
+        editorialRepository.save(entity);
+        
+    }
 
 
+    
+    @Transactional(readOnly = true)
+    public Editorial BuscarEditorial(Editorial editorial) {
+        return editorialRepository.findById(editorial.getId()).orElse(null);
+    }
 
 }

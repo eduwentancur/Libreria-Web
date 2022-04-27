@@ -6,35 +6,56 @@
 </head>
 
 <body>
+
+
     <header th:replace="fragmentos/header :: header"></header>
 
-    <div class="section">
-        <h1>Bienvenido Libreria EGG🥚</h1>
-
-
-        <div class="botones">
-            <a th:href="@{/agregar/libro}"> <button class="btn btn-success" type="button" style="width: 230px" >Agregar Libro</button></a>
-            <a th:href="@{/crearAutor}"> <button class="btn btn-success" type="button" style="width: 230px" >Agregar Autor</button></a>
-            <a th:href="@{/crearEditorial}"> <button class="btn btn-success" type="button" style="width: 230px" >Agregar Editorial</button></a>
-        </div>
-
+    <main>
+        
         
 
-        <div class="video-container">
-            <div class="color-overlay">
-                <video style="width: 370%" id="background" autoplay loop muted>
-                    <source src="../img/fondolibro.mp4" type="video/mp4">
+        <div class="section">
 
-                </video>
+
+            <div class="botones">
+                <div class="row mt-5">
+                    <div class="">
+                        <div class="mb-4">
+                            <a th:href="@{/crearLibro}"> <button class="btn btn-success" type="button" id="agregarbutton"
+                                    style="width: 230px">Agregar Libro</button></a>
+                        </div>
+                        <div class="mb-4">
+                            <a th:href="@{/crearAutor}"> <button class="btn btn-success" type="button" id="agregarbutton" 
+                                    style="width: 230px">Agregar Autor</button></a>
+                        </div>
+                        <a th:href="@{/crearEditorial}"> <button class="btn btn-success" type="button" id="agregarbutton" 
+                                style="width: 230px">Agregar Editorial</button></a>
+                    </div>
+                   
+                </div>
+               
+                 <div class="row mt-5">
+                        <busqueda th:replace="fragmentos/busqueda :: busqueda"></busqueda>
+                 </div>
+            </div>
+
+            
+            <div class="video-container">
+                <div class="color-overlay">
+                    <video style="width: 370%" id="background" autoplay loop muted>
+                        <source src="../img/fondolibro.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
-    </div>
 
-    <section class="container"></section>
 
-    <footer th:replace="fragmentos/footer"></footer>
+        <footer th:replace="fragmentos/footer"></footer>
+    </main>
+
     
 
+   
 
 
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>

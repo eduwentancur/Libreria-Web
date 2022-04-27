@@ -22,14 +22,13 @@ public class Libro implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_libro")
     private Long id;
-
     @NotBlank(message = "ISBN obligatorio")
     private Long isbn;
     @NotBlank(message = "Titulo obligatorio")
     @Column(length = 100, nullable = false)
     private String titulo;
     @NotBlank(message = "Año obligatorio")
-    @Column(name="año")
+    @Column(name="año", columnDefinition = "YEAR", nullable = false)
     private Integer anio;
     @NotBlank(message = "Añadir ejemplares")
     private Integer ejemplares;
