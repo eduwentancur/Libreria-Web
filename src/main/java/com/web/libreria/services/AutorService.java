@@ -1,10 +1,8 @@
 package com.web.libreria.services;
 
 import java.util.List;
-
 import com.web.libreria.entities.Autor;
 import com.web.libreria.repository.AutorRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +25,6 @@ public class AutorService implements BaseService<Autor, Long> {
     @Override
     @Transactional
     public void update(Autor entity) {
-        
     }
 
     @Override

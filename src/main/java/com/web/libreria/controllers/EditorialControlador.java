@@ -44,6 +44,4 @@ public class EditorialControlador {
         return new RedirectView("/editoriales");
     }
 
-
-    
 }

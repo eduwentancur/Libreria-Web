@@ -1,16 +1,11 @@
 package com.web.libreria.services;
 
 import java.util.List;
-
-
 import com.web.libreria.entities.Editorial;
 import com.web.libreria.repository.EditorialRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-
 
 @Service
 public class EditorialService implements BaseService<Editorial, Long> {
@@ -24,7 +19,6 @@ public class EditorialService implements BaseService<Editorial, Long> {
         editorial.setNombre(entity.getNombre());
         editorial.setAlta(entity.getAlta());
         editorialRepository.save(editorial);
-
     }
 
     @Override
@@ -48,7 +42,6 @@ public class EditorialService implements BaseService<Editorial, Long> {
     @Override
     @Transactional
     public void deleteById(Long id) {
-        
     }
 
     @Transactional
@@ -60,10 +53,7 @@ public class EditorialService implements BaseService<Editorial, Long> {
             entity.setAlta(true);
         }
         editorialRepository.save(entity);
-        
     }
-
-
     
     @Transactional(readOnly = true)
     public Editorial BuscarEditorial(Editorial editorial) {

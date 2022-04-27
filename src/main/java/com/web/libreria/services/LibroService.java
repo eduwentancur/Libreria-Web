@@ -1,10 +1,8 @@
 package com.web.libreria.services;
 
 import java.util.List;
-
 import com.web.libreria.entities.Libro;
 import com.web.libreria.repository.LibroRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,8 +47,5 @@ public class LibroService implements BaseService<Libro, Long> {
     public void cambiarAlta(Libro libro) {
         
     }
-
-
-    
     
 }
