@@ -43,5 +43,12 @@ public class LibroControlador {
         return new RedirectView("/libros");
     }
 
+    @GetMapping("/libros")
+    public ModelAndView mostrarAutores() {
+        ModelAndView mav = new ModelAndView("libros");
+        mav.addObject("libros", libroService.getAll());
+        return mav;
+    }
+
 
 }

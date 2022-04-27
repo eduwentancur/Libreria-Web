@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 
 
@@ -22,7 +23,7 @@ public class Libro implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_libro")
     private Long id;
-    @NotBlank(message = "ISBN obligatorio")
+    @NotEmpty(message = "ISBN obligatorio")
     private Long isbn;
     @NotBlank(message = "Titulo obligatorio")
     @Column(length = 100, nullable = false)

@@ -16,7 +16,17 @@ public class LibroService implements BaseService<Libro, Long> {
     @Override
     @Transactional
     public void create(Libro entity) {
-        
+        Libro libroNuevo = new Libro();
+        libroNuevo.setIsbn(entity.getIsbn());
+        libroNuevo.setTitulo(entity.getTitulo());
+        libroNuevo.setAnio(entity.getAnio());
+        libroNuevo.setEjemplares(entity.getEjemplares());
+        libroNuevo.setEjemplaresPrestados(entity.getEjemplaresPrestados());
+        libroNuevo.setEjemplaresRestantes(entity.getEjemplares()-entity.getEjemplaresPrestados());
+        libroNuevo.setAlta(true);
+        libroNuevo.setAutor(entity.getAutor());
+        libroNuevo.setEditorial(entity.getEditorial());
+        libroRepository.save(libroNuevo);
     }
 
     @Override
