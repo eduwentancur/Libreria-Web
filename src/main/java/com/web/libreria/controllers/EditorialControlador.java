@@ -44,4 +44,12 @@ public class EditorialControlador {
         return new RedirectView("/editoriales");
     }
 
+    @GetMapping("/eliminar/{id}")
+    public RedirectView eliminnar(Editorial editorial ) {
+        editorial = editorialService.BuscarEditorial(editorial);
+        editorialService.deleteById(editorial.getId());
+        return new RedirectView("/editoriales");
+    }
+
+
 }

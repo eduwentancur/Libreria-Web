@@ -2,16 +2,9 @@ package com.web.libreria.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.Setter;
@@ -30,7 +23,7 @@ public class Libro implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_libro")
     private Long id;
-    @NotEmpty(message = "ISBN obligatorio")
+    @NotNull(message = "ISBN obligatorio")
     private Long isbn;
     @NotBlank(message = "Titulo obligatorio")
     @Column(length = 100, nullable = false)
@@ -38,12 +31,12 @@ public class Libro implements Serializable {
     @NotNull(message = "Año obligatorio")
     @Column(name="año", columnDefinition = "YEAR", nullable = false)
     private Integer anio;
-    @NotBlank(message = "Añadir ejemplares")
+    @NotNull
     private Integer ejemplares;
-    @NotBlank(message = "Añadir prestados")
-    @Column(name = "ejemplares_prestados", length = 100, nullable = false)
+    @Column(name = "ejemplares_prestados", length = 100)
+    @NotNull
     private Integer ejemplaresPrestados;
-    @Column(name = "ejemplares_restantes", length = 100, nullable = false)
+    @Column(name = "ejemplares_restantes", length = 100)
     private Integer ejemplaresRestantes;
     
     private Boolean alta;
@@ -53,30 +46,5 @@ public class Libro implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Editorial editorial;
-    
-   
-    public Libro(Long id, Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados,
-            Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
-        this.id = id;
-        this.isbn = isbn;
-        this.titulo = titulo;
-        this.anio = anio;
-        this.ejemplares = ejemplares;
-        this.ejemplaresPrestados = ejemplaresPrestados;
-        this.ejemplaresRestantes = ejemplaresRestantes;
-        this.alta = alta;
-        this.autor = autor;
-        this.editorial = editorial;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Libro [alta=" + alta + ", anio=" + anio + ", autor=" + autor + ", editorial=" + editorial
-                + ", ejemplares=" + ejemplares + ", ejemplaresPrestados=" + ejemplaresPrestados
-                + ", ejemplaresRestantes=" + ejemplaresRestantes + ", id=" + id + ", isbn=" + isbn + ", titulo="
-                + titulo + "]";
-    }
-
 
 }

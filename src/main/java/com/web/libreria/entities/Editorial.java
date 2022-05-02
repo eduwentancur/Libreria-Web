@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.annotations.SQLDelete;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@SQLDelete(sql= "UPDATE editoriales SET alta = true WHERE id_editorial = ?")
 @NoArgsConstructor
 @Table(name= "editoriales")
 public class Editorial implements Serializable {
@@ -35,12 +39,6 @@ public class Editorial implements Serializable {
         this.id = id;
         this.nombre = nombre;
         this.alta = alta;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Editorial [alta=" + alta + ", id=" + id + ", nombre=" + nombre + "]";
     }
 
 }

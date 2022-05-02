@@ -45,6 +45,7 @@ public class EditorialService implements BaseService<Editorial, Long> {
     @Override
     @Transactional
     public void deleteById(Long id) {
+        editorialRepository.deleteById(id);
     }
 
     @Transactional

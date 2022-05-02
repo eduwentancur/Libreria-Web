@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@SQLDelete(sql= "UPDATE autores SET alta_autor = true WHERE id = ?")
 @Table(name = "autores")
 public class Autor implements Serializable {
 
@@ -28,11 +32,7 @@ public class Autor implements Serializable {
     @NotBlank(message = "Nombre obligatorio")
     @Column(name="autor_nombre")
     private String nombre;
+    @Column (name="alta_autor")
     private Boolean alta;
-   
-    @Override
-    public String toString() {
-        return "Autor [alta=" + alta + ", id=" + id + ", nombre=" + nombre + "]";
-    }
-    
+  
 }
