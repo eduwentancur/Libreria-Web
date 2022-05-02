@@ -3,15 +3,18 @@ package com.web.libreria.services;
 import java.util.List;
 import com.web.libreria.entities.Editorial;
 import com.web.libreria.repository.EditorialRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class EditorialService implements BaseService<Editorial, Long> {
 
-    @Autowired
-    EditorialRepository editorialRepository;
+    private final EditorialRepository editorialRepository;
+    
+
     @Override
     @Transactional
     public void create(Editorial entity) {

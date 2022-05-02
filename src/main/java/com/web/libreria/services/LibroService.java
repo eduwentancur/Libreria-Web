@@ -3,15 +3,17 @@ package com.web.libreria.services;
 import java.util.List;
 import com.web.libreria.entities.Libro;
 import com.web.libreria.repository.LibroRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
-public class LibroService implements BaseService<Libro, Long> {
+import lombok.RequiredArgsConstructor;
 
-    @Autowired
-    private LibroRepository libroRepository;
+@Service
+@RequiredArgsConstructor
+public class LibroService implements BaseService<Libro, Long> {
+    
+    private final LibroRepository libroRepository;
+
 
     @Override
     @Transactional
