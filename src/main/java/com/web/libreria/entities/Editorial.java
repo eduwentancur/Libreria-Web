@@ -32,13 +32,5 @@ public class Editorial implements Serializable {
     @Column(name= "editorial_nombre")
     private String nombre;
     private Boolean alta;
-   
-   
-
-    public Editorial(Long id, String nombre, Boolean alta) {
-        this.id = id;
-        this.nombre = nombre;
-        this.alta = alta;
-    }
 
 }
